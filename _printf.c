@@ -1,34 +1,42 @@
+#include "main.h"
+#include <unistd.h>
+#include <stdarg.h>
+/**
+ * _printf - the function
+ * @format: the str that pass
+ * Return: the size of str printed
+ */
 int _printf(const char *format, ...)
 {
-    va_list ptr;
-    int i;
-    char f;
-    char *s;
+        va_list ptr;
+        int i, ret = 0;
+        char f;
+        char *s;
 
-    va_start(ptr, format);
-    for (i = 0; format[i] != '\0'; i++)
-    {
-        if (format[i] == '%')
+        va_start(ptr, format);
+        for (i = 0; format[i] != '\0'; i++)
         {
-            if (format[i + 1] == 's')
-            {
-                s = va_arg(ptr, char *);
-               write(1, s, _strlen(s));
-            }
-            else if (format[i + 1] == 'c')
-            {
-                f = va_arg(ptr, int);
-                write(1, &f, 1);
-            }
-            else if (format[i + 1] == '%')
-            {
-                write(1, &format[i], 1);
-            }
-            i++;
+                if (format[i] == '%')
+                {
+                        if (format[i + 1] == 's')
+                        {
+                                s = va_arg(ptr, char *);
+                                ret += write(1, s, _strlen(s));
+                        }
+                        else if (format[i + 1] == 'c')
+                        {
+                            f = va_arg(ptr, int);
+                            ret += write(1, &f, 1);
+                        }
+                        else if (format[i + 1] == '%')
+                        {
+                                ret += write(1, &format[i], 1);
+                        }
+                i++;
+                }
+                else
+                        ret += write(1, &format[i], 1);
         }
-        else
-            printf("%c", format[i]);
-    }
-
-    va_end(ptr);
+        va_end(ptr);
+        return (ret);
 }
