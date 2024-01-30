@@ -30,7 +30,8 @@ int _printf(const char *format, ...)
 		}
 			else if (format[i + 1] == '%')
 		{
-			ret += write(1, &format[i], 1);
+			f = 37;
+			ret += write(1, &f, 1);
 		}
 		i++;
 	}
