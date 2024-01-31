@@ -1,3 +1,7 @@
+#include "main.h"
+#include <unistd.h>
+#include <stdarg.h>
+
 /**
  * printf_binary - convert to binary
  * @ptr: numero in decimal
