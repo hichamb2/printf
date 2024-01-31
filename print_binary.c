@@ -8,12 +8,11 @@
  * Return: number of characters printed
  */
 
-int print_binary(va_list ptr)
+int print_binary(unsigned int n)
 {
-        unsigned int bin, flag, i, digit, n, num;
+        unsigned int bin, flag, i, digit, num;
         int count = 0;
 
-        n = va_arg(ptr, unsigned int);
         if (n != 0)
         {
         num = n;

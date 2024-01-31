@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	int i, ret = 0;
+	int i, b, ret = 0;
 	char f;
 	char *s;
 
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == '%')
 				ret += write(1, &format[i], 1);
 			else if (format[i + 1] == 'b')
-				ret += print_binary(va_arg(ptr, int));
+				ret += b = print_binary(va_arg(ptr, unsigned int));
 		i++;
 		}
 		else
