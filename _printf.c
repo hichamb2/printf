@@ -9,8 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	int i, b, ret = 0;
-	char f;
+	int i, ret = 0;
 	char *s;
 
 	if (format == NULL)
@@ -26,14 +25,11 @@ int _printf(const char *format, ...)
 				ret += write(1, s, _strlen(s));
 			}
 			else if (format[i + 1] == 'c')
-			{
-				f = va_arg(ptr, int);
-				ret += write(1, &f, 1);
-			}
+				ret += _putchar(va_arg(ptr, int));
 			else if (format[i + 1] == '%')
-				ret += write(1, &format[i], 1);
+				ret += _putchar(format[i]);
 			else if (format[i + 1] == 'b')
-				ret += b = print_binary(va_arg(ptr, unsigned int));
+				ret += print_binary(va_arg(ptr, unsigned int));
 		i++;
 		}
 		else
