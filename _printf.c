@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 				ret += _putchar(va_arg(ptr, int));
 			else if (format[i + 1] == '%')
 				ret += _putchar(format[i]);
+			else if (format[i + 1] == 'i' || format[i + 1] == 'd')
+				ret += print_number(va_arg(ptr, int));
 			else if (format[i + 1] == 'b')
 				ret += print_binary(va_arg(ptr, unsigned int));
 		i++;
