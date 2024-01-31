@@ -34,6 +34,8 @@ int _printf(const char *form, ...)
 			{
 				ret += write(1, &form[i], 1);
 			}
+			else
+			ret += write(1, &form[i], 1);
 		i++;
 		}
 		else
