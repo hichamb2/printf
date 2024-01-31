@@ -31,9 +31,9 @@ int _printf(const char *format, ...)
 				ret += write(1, &f, 1);
 			}
 			else if (format[i + 1] == '%')
-			{
 				ret += write(1, &format[i], 1);
-			}
+			else if (format[i + 1] == 'b')
+				ret += print_binary(va_arg(ptr, int));
 		i++;
 		}
 		else
