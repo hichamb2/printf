@@ -10,7 +10,6 @@ int _printf(const char *format, ...)
 {
 	va_list ptr;
 	int i, ret = 0;
-	char *s;
 
 	if (format == NULL)
 		return (-1);
@@ -21,8 +20,8 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == 's')
 			{
-				s = va_arg(ptr, char *);
-				ret += write(1, s, _strlen(s));
+				ret += _puts(va_arg(ptr, char *));
+				/*ret += write(1, s, _strlen(s));*/
 			}
 			else if (format[i + 1] == 'c')
 				ret += _putchar(va_arg(ptr, int));
