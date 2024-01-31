@@ -3,43 +3,41 @@
 #include <stdarg.h>
 /**
  * _printf - the function
- * @form: the str that pass
+ * @format: the str that pass
  * Return: the size of str printed
  */
-int _printf(const char *form, ...)
+int _printf(const char *format, ...)
 {
 	va_list ptr;
 	int i, ret = 0;
 	char f;
 	char *s;
 
-	if (form == NULL)
+	if (format == NULL)
 		return (-1);
-	va_start(ptr, form);
-	for (i = 0; form && form[i] != '\0'; i++)
+	va_start(ptr, format);
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (form[i] == '%')
+		if (format[i] == '%')
 		{
-			if (form[i + 1] == 's')
+			if (format[i + 1] == 's')
 			{
 				s = va_arg(ptr, char *);
 				ret += write(1, s, _strlen(s));
 			}
-			else if (form[i + 1] == 'c')
+			else if (format[i + 1] == 'c')
 			{
 				f = va_arg(ptr, int);
 				ret += write(1, &f, 1);
 			}
-			else if (form[i + 1] == '%')
+			else if (format[i + 1] == '%')
 			{
-				ret += write(1, &form[i], 1);
+				ret += write(1, &format[i], 1);
 			}
-			else
-			ret += write(1, &form[i], 1);
 		i++;
 		}
 		else
-			ret += write(1, &form[i], 1);
+			ret += write(1, &format[i], 1);
 	}
 	va_end(ptr);
 	return (ret);
