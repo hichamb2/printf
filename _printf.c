@@ -24,13 +24,13 @@ int _printf(const char *format, ...)
 			if (ff == 'c' || ff == 's' || ff == 'd' || ff == 'd' || ff == 'i'
 				|| ff == 'b' || ff == 'u' || ff == 'o' ||
 				ff == 'x' || ff == 'X' || ff == 'r')
-			{
 				ret += get_op_func(ff)(ptr);
+			else if (ff == '\0')
+			{
+				return (-1);
 			}
 			else if (ff == '%')
-			{
-				ret += write(1, &ff, 1);
-			}
+				ret += write(1, &f, 1);
 			else
 			{
 				ret += write(1, &f, 1);
