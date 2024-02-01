@@ -20,7 +20,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			operator = format[i + 1];
-			ret += get_op_func(operator)(ptr);
+			if (operator == '%')
+				ret += write(1, &format[i], 1);
+			else
+				ret += get_op_func(operator)(ptr);
 			i++;
 		}
 		else

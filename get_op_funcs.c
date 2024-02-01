@@ -10,7 +10,7 @@ int (*get_op_func(char s))(va_list)
 			{'i', p_list_num}, {'d', p_list_num},
 			{'b', p_list_bin}, {'o', p_list_octal},
 			{'x', p_list_hexa_low}, {'X', p_list_hexa_upr},
-			{'%', _percent}};
+			{'%', _percent}, {'r', p_list_rev}};
 	int i = 0;
 
 	while (i <= 9)

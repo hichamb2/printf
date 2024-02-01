@@ -36,4 +36,5 @@ int p_list_octal(va_list ptr);
 int p_list_hexa_low(va_list ptr);
 int p_list_hexa_upr(va_list ptr);
 int _percent(va_list ptr);
+int p_list_rev(va_list ptr);
 #endif
