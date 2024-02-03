@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			ff = format[i + 1];
 			if (ff == 'c' || ff == 's' || ff == 'd' || ff == 'd' || ff == 'i'
 				|| ff == 'b' || ff == 'u' || ff == 'o' ||
-				ff == 'x' || ff == 'X' || ff == 'r')
+				ff == 'x' || ff == 'X' || ff == 'r' || ff == 'R')
 				ret += get_op_func(ff)(ptr);
 			else if (ff == '\0')
 			{

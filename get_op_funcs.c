@@ -10,10 +10,10 @@ int (*get_op_func(char s))(va_list)
 			{'i', p_list_num}, {'d', p_list_num},
 			{'b', p_list_bin}, {'o', p_list_octal},
 			{'x', p_list_hexa_low}, {'X', p_list_hexa_upr},
-			{'%', _percent}, {'r', p_list_rev}};
+			{'%', _percent}, {'r', p_list_rev}, {'R', p_list_rot13}};
 	int i = 0;
 
-	while (i <= 9)
+	while (i < 11)
 	{
 		if (s == ops[i].op)
 			return (ops[i].f);

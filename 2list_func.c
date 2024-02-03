@@ -49,3 +49,16 @@ int p_list_rev(va_list ptr)
 	}
 	return (ret);
 }
+/**
+ * p_list_rot13 - writes the character c to stdout
+ * @ptr: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int p_list_rot13(va_list ptr)
+{
+	char *str = va_arg(ptr, char *);
+
+	return (rot13(str));
+}
