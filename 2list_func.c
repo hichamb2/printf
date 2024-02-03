@@ -62,3 +62,9 @@ int p_list_rot13(va_list ptr)
 
 	return (rot13(str));
 }
+int p_list_unsigned(va_list ptr)
+{
+	unsigned int n = va_arg(ptr, unsigned int);
+
+	return (print_unsigned(n));
+}

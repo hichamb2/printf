@@ -13,7 +13,7 @@ int rot13(char *str)
 	int i, j, ret = 0;
 	char x;
 
-	if(!str)
+	if (!str)
 	{
 		str = "(AHYY)";
 		ret += write(1, str, _strlen(str));
@@ -33,7 +33,7 @@ int rot13(char *str)
 		if (!alp[j])
 		{
 			x = str[i];
-			ret+= write(1, &x, 1);
+			ret += write(1, &x, 1);
 		}
 	}
 	return (ret);

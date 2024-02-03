@@ -13,7 +13,7 @@ int print_hexa_upr(unsigned int n);
 int _percent(va_list ptr);
 int p_list_rev(va_list ptr);
 int rot13(char *str);
-
+int print_unsigned(unsigned int n);
 
 int _putchar(char c);
 int _strlen(char *s);
@@ -39,4 +39,5 @@ int p_list_octal(va_list ptr);
 int p_list_hexa_low(va_list ptr);
 int p_list_hexa_upr(va_list ptr);
 int p_list_rot13(va_list ptr);
+int p_list_unsigned(va_list ptr);
 #endif

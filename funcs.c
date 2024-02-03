@@ -34,3 +34,14 @@ int _percent(va_list ptr)
 
 	return (write(1, "%%", 1));
 }
+int print_unsigned(unsigned int n)
+{
+	int ret = 0;
+
+/* Print the first few digits*/
+	if ((n / 10) > 0)
+		ret += print_unsigned(n / 10);
+/* Print the last digit*/
+	ret += _putchar((n % 10) + '0');
+	return (ret);
+}
