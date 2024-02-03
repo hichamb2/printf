@@ -8,9 +8,10 @@
  */
 int rot13(char *str)
 {
-	char alp[] = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
-	char con[] = "NnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMm";
+	char alp[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char con[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	int i, j, ret = 0;
+	char x;
 
 	if(!str)
 	{
@@ -24,9 +25,15 @@ int rot13(char *str)
 		{
 			if (str[i] == alp[j])
 			{
-				ret += _putchar(con[j]);
+				x = con[j];
+				ret += write(1, &x, 1);
 				break;
 			}
+		}
+		if (!alp[j])
+		{
+			x = str[i];
+			ret+= write(1, &x, 1);
 		}
 	}
 	return (ret);
